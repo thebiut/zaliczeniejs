@@ -1,0 +1,26 @@
+
+.txt {
+  font-family: Montserrat, sans-serif;
+  font-size: medium;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-70%, -50%)
+}
+
+.btn-primary{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(90%, -50%)
+}
+

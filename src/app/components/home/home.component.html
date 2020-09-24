@@ -1,0 +1,58 @@
+<div class="txt" *ngIf="!accessToken">
+  <label>
+    Client ID
+    <input type="text" [(ngModel)]="clientId" />
+  </label>
+  <label class="mx-2">
+    Client Secret
+    <input type="text" [(ngModel)]="clientSecret" />
+  </label>
+  <button class="btn-primary mx-2" (click)="onClick()">Get access token</button>
+</div>
+<div *ngIf="accessToken">
+  <div *ngFor="let gist of gists; let i = index">
+    {{ gist.id }}
+    <button class="btn-delete" (click)="deleteGist(gist.id, i)">Delete</button>
+    <button class="btn-edit" (click)="selectGist(gist.id)">Edit</button>
+  </div>
+  <button class="btn-create" (click)="createNewGist()">Create New Gist</button>
+  <div>
+    <div *ngIf="editedGist">Edited Gist With Id: {{ editedGist.id }}</div>
+
+    <br>
+    <label>
+      Description
+      <input type="text" [(ngModel)]="description">
+    </label>
+    <br>
+    <div>
+      Files
+      <label>
+        Filename
+        <input type="text" [(ngModel)]="newFileFilename">
+      </label>
+      <label class="mx-2">
+        Content
+        <input type="text" [(ngModel)]="newFileContent">
+      </label>
+      <button class="create-btn mx-3" (click)="saveFile()">Add File</button>
+      <div *ngFor="let file of editedGistFilesArray; let i = index">
+        {{ file.filename }}
+        <button class="btn-delete" (click)="editedGistFilesArray.splice(i, 1); deletedFiles.push(file.filename);">Delete
+          File</button>
+      </div>
+      <button class="btn-create" *ngIf="editedGist" (click)="saveGist(true)">SAVE Edited GIST</button>
+      <button class="btn-primary" *ngIf="!editedGist" (click)="saveGist(false)">Create GIST</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="feedback.message !== ''">
+  <div class="alert alert-danger" *ngIf="feedback.type === 'error'; else successAlert">
+    {{ feedback.type }}: {{ feedback.message }}
+  </div>
+  <ng-template #successAlert>
+    <div class="alert alert-success">
+      {{ feedback.message }}
+    </div>
+  </ng-template>
+</div>

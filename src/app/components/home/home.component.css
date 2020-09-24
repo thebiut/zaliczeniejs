@@ -1,0 +1,47 @@
+.txt{
+  font-family: Montserrat, sans-serif;
+  font-size: medium;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+
+.btn-primary{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-delete{
+  background-color: tomato;
+  border: none;
+  text-align: center;
+  border: 1px;
+
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-edit{
+  background-color: yellow;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-create{
+  background-color: #4CAF50;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
